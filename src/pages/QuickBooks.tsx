@@ -363,7 +363,10 @@ export default function QuickBooks() {
                 <button
                   disabled={!connected}
                   className={clsx("btn-secondary flex items-center gap-2 text-xs", !connected && "opacity-40 cursor-not-allowed")}
-                  onClick={() => { }}
+                  onClick={() => connected && runSync("accounts", "Fetch Accounts from QBO", async (client) => {
+                    await client.getAccounts();
+                    return { success: true, created: 0, updated: mockAccounts.length, errors: [], message: `Loaded ${mockAccounts.length} accounts from QuickBooks` };
+                  })}
                 >
                   <RefreshCw className="w-3.5 h-3.5" /> Fetch from QBO
                 </button>

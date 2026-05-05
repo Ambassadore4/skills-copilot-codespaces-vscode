@@ -188,7 +188,8 @@ class QBOClient {
   async createInvoice(invoice: QBOInvoice): Promise<QBOInvoice> {
     if (MOCK_MODE) {
       await delay(300);
-      return { ...invoice, Id: `INV-${Date.now()}`, TotalAmt: invoice.Line.reduce((s, l) => s + l.Amount, 0), Balance: invoice.Line.reduce((s, l) => s + l.Amount, 0) };
+      const total = invoice.Line.reduce((s, l) => s + l.Amount, 0);
+      return { ...invoice, Id: `INV-${Date.now()}`, TotalAmt: total, Balance: total };
     }
     const res = await fetch(`${this.baseUrl}/invoice`, {
       method: "POST",
