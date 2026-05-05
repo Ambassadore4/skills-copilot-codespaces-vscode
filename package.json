@@ -1,0 +1,12 @@
+{
+  "name": "commercial-real-estate-platform",
+  "version": "1.0.0",
+  "description": "Commercial real estate management platform covering Financial Management, Operations, Asset Management, and Investor/Tenant Portals",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test src/__tests__/*.test.js"
+  },
+  "keywords": ["real-estate", "property-management", "financial", "cam-reconciliation"],
+  "license": "MIT"
+}
