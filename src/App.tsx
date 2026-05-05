@@ -6,6 +6,7 @@ import Operations from "./pages/Operations";
 import Assets from "./pages/Assets";
 import TenantPortal from "./pages/TenantPortal";
 import InvestorPortal from "./pages/InvestorPortal";
+import QuickBooks from "./pages/QuickBooks";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/assets" element={<Assets />} />
             <Route path="/tenant" element={<TenantPortal />} />
             <Route path="/investor" element={<InvestorPortal />} />
+            <Route path="/quickbooks" element={<QuickBooks />} />
           </Routes>
         </main>
       </div>

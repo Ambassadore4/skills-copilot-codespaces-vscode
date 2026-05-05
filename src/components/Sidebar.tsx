@@ -7,6 +7,7 @@ import {
   Users,
   TrendingUp,
   Building2,
+  BookOpen,
 } from "lucide-react";
 import { clsx } from "clsx";
 
@@ -17,6 +18,10 @@ const nav = [
   { to: "/assets", icon: FolderOpen, label: "Asset Mgmt" },
   { to: "/tenant", icon: Users, label: "Tenant Portal" },
   { to: "/investor", icon: TrendingUp, label: "Investor Portal" },
+];
+
+const integrations = [
+  { to: "/quickbooks", icon: BookOpen, label: "QuickBooks" },
 ];
 
 export default function Sidebar() {
@@ -48,6 +53,26 @@ export default function Sidebar() {
             {label}
           </NavLink>
         ))}
+        <div className="pt-3 mt-2 border-t border-primary-700">
+          <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-primary-500">Integrations</p>
+          {integrations.map(({ to, icon: Icon, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                clsx(
+                  "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                  isActive
+                    ? "bg-primary-700 text-white"
+                    : "text-primary-200 hover:bg-primary-800 hover:text-white"
+                )
+              }
+            >
+              <Icon className="w-4 h-4 flex-shrink-0" />
+              {label}
+            </NavLink>
+          ))}
+        </div>
       </nav>
       <div className="px-6 py-4 border-t border-primary-700">
         <p className="text-xs text-primary-400">© 2025 PropManage</p>
